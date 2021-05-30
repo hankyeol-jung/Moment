@@ -1,13 +1,17 @@
-const title = document.querySelector('#title');
+const clockContainer = document.querySelector('.js-clock'),
+    clockTitle = clockContainer.querySelector('h1');
 
-const CLICKED_CLASS = 'clicked';
+function getTime() {
+    const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
+    const seconds = date.getSeconds();
+    clockTitle.innerText = `${hours}:${minutes}:${seconds}`;
 
-function handleClick() {
-    title.classList.toggle(CLICKED_CLASS);
-};
+}
 
 function init() {
-    title.addEventListener('click', handleClick);
+    getTime();
 }
 
 init();
